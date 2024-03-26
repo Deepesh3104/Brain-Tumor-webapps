@@ -199,9 +199,12 @@ def logout():
     session.pop("user_id", None)
     return render_template("login1.html")
 
+from flask import redirect, url_for
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
+        username = request.form["username"]
         firstname = request.form["Firstname"]
         lastname = request.form["Lastname"]
         email = request.form["Email"]
@@ -210,7 +213,7 @@ def register():
 
         existing_user = collection.find_one({"email": email})
         if existing_user:
-            return render_template("login1.html", error="Email already exists")
+            return render_template("register.html", error="Email already exists")
         hashed_password = bcrypt.hashpw(password.encode("utf-8"), bcrypt.gensalt())
         user_data = {
             "firstname": firstname,
@@ -220,9 +223,11 @@ def register():
         }
         collection.insert_one(user_data)
 
-        return redirect(url_for("login"))
+        # Redirect to the login page after successful registration
+        return redirect(url_for("login1"))
 
-    return render_template("login1.html")
+    return render_template("register.html")
+
 
 @app.route("/dashboard")
 def dashboard():
