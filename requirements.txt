@@ -1,0 +1,10 @@
+flask
+pymongo
+bcrypt
+scikit-learn==1.0.2
+pandas
+gunicorn
+motor
+torch
+nltk
+Flask-Mail
