@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success Alert</title>
+    <style>
+        /* Your CSS styles here */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .alert-container {
+            text-align: center;
+        }
+
+        .alert {
+            padding: 15px;
+            background-color: #4CAF50; /* Green */
+            color: white;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+
+        /* Add a close button */
+        .closebtn {
+            margin-left: 15px;
+            color: white;
+            font-weight: bold;
+            float: right;
+            font-size: 22px;
+            line-height: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        /* When hovering over the close button */
+        .closebtn:hover {
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="alert-container">
+        <div class="alert">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            Form submitted successfully!
+        </div>
+    </div>
+
+    <!-- Your JavaScript code here -->
+    <script>
+        // Redirect to another page after displaying the alert
+        setTimeout(function() {
+            window.location.href = "/";
+        }, 3000); // 3000 milliseconds = 3 seconds
+    </script>
+</body>
+</html>

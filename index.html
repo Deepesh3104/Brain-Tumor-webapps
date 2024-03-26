@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brain Tummor Detections</title>
+    <link rel="stylesheet" href="static/css/tailwind.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+      rel="stylesheet"
+    /> -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js"
+      integrity="sha512-7x3zila4t2qNycrtZ31HO0NnJr8kg2VI67YLoRSyi9hGhRN66FHYWr7Axa9Y1J9tGYHVBPqIjSE1ogHrJTz51g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+  </head>
+
+  <body class="font-body">
+    <!-- home section -->
+    <section class="bg-white py-10 md:mb-10">
+      <div class="container max-w-screen-xl mx-auto px-4">
+        <nav class="flex-wrap lg:flex items-center" x-data="{navbarOpen:false}">
+          <div class="flex items-center mb-10 lg:mb-0">
+            <h1 alt="logo" style="font-size: 2rem">Claim Trust</h1>
+
+            <button
+              class="lg:hidden w-10 h-10 ml-auto flex items-center justify-center border border-blue-500 text-blue-500 rounded-md"
+              @click="navbarOpen = !navbarOpen"
+            >
+              <i data-feather="menu"></i>
+            </button>
+          </div>
+
+          <ul
+            class="lg:flex flex-col lg:flex-row lg:items-center lg:mx-auto lg:space-x-8 xl:space-x-14"
+            :class="{'hidden':!navbarOpen,'flex':navbarOpen}"
+          >
+            <li
+              class="font-semibold text-gray-900 hover:text-gray-400 transition ease-in-out duration-300 mb-5 lg:mb-0"
+            >
+              <a href="#">Home</a>
+            </li>
+            <li
+              class="font-semibold text-gray-900 hover:text-gray-400 transition ease-in-out duration-300 mb-5 lg:mb-0"
+            >
+              <a href="./templates/contactus.html">contact</a>
+            </li>
+            <li
+              class="font-semibold text-gray-900 hover:text-gray-400 transition ease-in-out duration-300 mb-5 lg:mb-0"
+            >
+              <a href="./templates/services.html">Our Services</a>
+            </li>
+            <li
+              class="font-semibold text-gray-900 hover:text-gray-400 transition ease-in-out duration-300 mb-5 lg:mb-0"
+            >
+              <a href="#">About us</a>
+            </li>
+          </ul>
+
+          <div
+            class="lg:flex flex-col md:flex-row md:items-center text-center md:space-x-6"
+            :class="{'hidden':!navbarOpen,'flex':navbarOpen}"
+          >
+            <a
+              href="./templates/register.html"
+              class="px-6 py-4 bg-blue-500 text-white font-semibold text-lg rounded-xl hover:bg-blue-700 transition ease-in-out duration-500 mb-5 md:mb-0"
+              >Signup</a
+            >
+
+            <a
+              href="./templates/login.html"
+              class="px-6 py-4 border-2 border-blue-500 text-blue-500 font-semibold text-lg rounded-xl hover:bg-blue-700 hover:text-white transition ease-linear duration-500"
+              >Already a Member</a
+            >
+          </div>
+        </nav>
+
+        <div class="flex flex-col lg:flex-row justify-between space-x-20">
+          <div class="text-center lg:text-left mt-40">
+            <h1
+              class="font-semibold text-gray-900 text-3xl md:text-6xl leading-normal mb-6"
+            >
+              Brain Tumor <br />
+              Detections
+            </h1>
+
+            <p
+              class="font-light text-gray-400 text-md md:text-lg leading-normal mb-12"
+            >
+              In the realm of health, early detection is the key <br />
+              that unlocks the door to successful treatment.
+            </p>
+
+            <button
+              class="px-6 py-4 bg-info font-semibold text-white text-lg rounded-xl hover:bg-blue-700 transition ease-in-out duration-500"
+            >
+              Get started
+            </button>
+          </div>
+
+          <div class="mt-24">
+            <img src="static/image/home-img.png" alt="Image" />
+          </div>
+        </div>
+      </div>
+      <!-- container.// -->
+    </section>
+    <!-- home section //end -->
+
+    <section class="text-gray-600 body-font">
+      <div class="container px-5 py-24 mx-auto">
+        <div class="flex flex-col text-center w-full mb-20">
+          <h2
+            class="text-xs text-indigo-500 tracking-widest font-medium title-font mb-1"
+            style="font-size: 1rem"
+          >
+            ML Brain Tumour Detection
+          </h2>
+          <h1
+            class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900"
+            style="margin-top: 1rem"
+          >
+            Cutting-edge Machine Learning Projects
+          </h1>
+          <p class="lg:w-2/3 mx-auto leading-relaxed text-base">
+            Our machine learning-driven brain tumor detection system examines
+            data, detects patterns, and identifies anomalous behaviors to aid
+            medical practitioners in risk mitigation, loss reduction, and
+            equitable treatment for patients.
+          </p>
+        </div>
+        <div class="flex flex-wrap">
+          <div
+            class="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60"
+          >
+            <h2
+              class="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2"
+            >
+              ML for Brain Tumor Detection
+            </h2>
+            <p class="leading-relaxed text-base mb-4">
+              Utilizing machine learning empowers healthcare professionals in
+              accurately identifying and diagnosing brain tumors, thereby
+              enhancing patient care and treatment outcomes within the field of
+              neurology.
+            </p>
+            <a
+              href="./content1"
+              class="text-indigo-500 inline-flex items-center"
+              >Learn More
+              <svg
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                class="w-4 h-4 ml-2"
+                viewBox="0 0 24 24"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+          <div
+            class="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60"
+          >
+            <h2
+              class="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2"
+            >
+              Advantages of ML
+            </h2>
+            <p class="leading-relaxed text-base mb-4">
+              Machine learning enables efficient automation, accurate
+              predictions, and data-driven decision-making, revolutionizing
+              industries and improving productivity.
+            </p>
+            <a
+              href="./content2"
+              class="text-indigo-500 inline-flex items-center"
+              >Learn More
+              <svg
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                class="w-4 h-4 ml-2"
+                viewBox="0 0 24 24"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+          <div
+            class="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60"
+          >
+            <h2
+              class="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2"
+            >
+              Implementing ML
+            </h2>
+            <p class="leading-relaxed text-base mb-4">
+              The successful implementation of machine learning in brain tumor
+              detection necessitates careful preprocessing of medical images,
+              selecting appropriate algorithms, fine-tuning model parameters,
+              and conducting thorough evaluations to ensure reliable and
+              accurate diagnoses.
+            </p>
+            <a
+              href="./content3"
+              class="text-indigo-500 inline-flex items-center"
+              >Learn More
+              <svg
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                class="w-4 h-4 ml-2"
+                viewBox="0 0 24 24"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+          <div
+            class="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60"
+          >
+            <h2
+              class="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2"
+            >
+              Real-life Cases
+            </h2>
+            <p class="leading-relaxed text-base mb-4">
+              In a notable instance, medical practitioners utilized machine
+              learning algorithms to analyze MRI scans and detect a rare brain
+              tumor in a patient. This timely intervention led to successful
+              treatment and underscores the pivotal role of machine learning in
+              healthcare.
+            </p>
+            <a
+              href="./content4"
+              class="text-indigo-500 inline-flex items-center"
+              >Learn More
+              <svg
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                class="w-4 h-4 ml-2"
+                viewBox="0 0 24 24"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- <script id="chatbotkit-widget" src="https://static.chatbotkit.com/integrations/widget/v2.js" data-widget="cls24v7ph003j070uhuit4764"></script> -->
+    </section>
+
+    <!-- component My chatbot-->
+    <div class="fixed bottom-0 right-0 mb-4 mr-4">
+      <button
+        id="open-chat"
+        class="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300 flex items-center"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-6 h-6 mr-2"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+          ></path>
+        </svg>
+        Chat with Trust Bot
+      </button>
+    </div>
+    <div id="chat-container" class="hidden fixed bottom-16 right-4 w-96">
+      <div class="bg-white shadow-md rounded-lg max-w-lg w-full">
+        <div
+          class="p-4 border-b bg-blue-500 text-white rounded-t-lg flex justify-between items-center"
+        >
+          <p class="text-lg font-semibold">Trust Bot</p>
+          <button
+            id="close-chat"
+            class="text-gray-300 hover:text-gray-400 focus:outline-none focus:text-gray-400"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-6 h-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              ></path>
+            </svg>
+          </button>
+        </div>
+        <div id="chatbox" class="p-4 h-80 overflow-y-auto">
+          <!-- Chat messages will be displayed here -->
+
+          <div class="mb-2">
+            <p
+              class="bg-gray-200 text-gray-700 rounded-lg py-2 px-4 inline-block"
+            >
+              Hello! I'm here to help you with any questions.
+            </p>
+          </div>
+
+          <div class="mb-2">
+            <p
+              class="bg-gray-200 text-gray-700 rounded-lg py-2 px-4 inline-block"
+            >
+              I can Assist You in Financial And Healthcare
+            </p>
+          </div>
+          <div class="mb-2">
+            <p
+              class="bg-gray-200 text-gray-700 rounded-lg py-2 px-4 inline-block"
+            >
+              Tap on Predictions button to check weather coustmer is legitimate
+              or Fraud
+            </p>
+          </div>
+          <div class="mb-2">
+            <p
+              class="bg-gray-200 text-gray-700 rounded-lg py-2 px-4 inline-block"
+            >
+              Our Advance Detection easily detect a fraudsters.
+            </p>
+          </div>
+        </div>
+        <div class="p-4 border-t flex">
+          <input
+            id="user-input"
+            type="text"
+            placeholder="Type a message"
+            class="w-full px-3 py-2 border rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+          <button
+            id="send-button"
+            class="bg-blue-500 text-white px-4 py-2 rounded-r-md hover:bg-blue-600 transition duration-300"
+          >
+            Send
+          </button>
+        </div>
+      </div>
+    </div>
+    <script>
+      const chatbox = document.getElementById("chatbox");
+      const chatContainer = document.getElementById("chat-container");
+      const userInput = document.getElementById("user-input");
+      const sendButton = document.getElementById("send-button");
+      const openChatButton = document.getElementById("open-chat");
+      const closeChatButton = document.getElementById("close-chat");
+
+      let isChatboxOpen = true; // Set the initial state to open
+
+      // Function to toggle the chatbox visibility
+      function toggleChatbox() {
+        chatContainer.classList.toggle("hidden");
+        isChatboxOpen = !isChatboxOpen; // Toggle the state
+      }
+
+      // Add an event listener to the open chat button
+      openChatButton.addEventListener("click", toggleChatbox);
+
+      // Add an event listener to the close chat button
+      closeChatButton.addEventListener("click", toggleChatbox);
+
+      // Add an event listener to the send button
+      sendButton.addEventListener("click", function () {
+        const userMessage = userInput.value;
+        if (userMessage.trim() !== "") {
+          addUserMessage(userMessage);
+          sendUserMessage(userMessage);
+          userInput.value = "";
+        }
+      });
+
+      userInput.addEventListener("keyup", function (event) {
+        if (event.key === "Enter") {
+          const userMessage = userInput.value;
+          if (userMessage.trim() !== "") {
+            addUserMessage(userMessage);
+            sendUserMessage(userMessage);
+            userInput.value = "";
+          }
+        }
+      });
+
+      function addUserMessage(message) {
+        const messageElement = document.createElement("div");
+        messageElement.classList.add("mb-2", "text-right");
+        messageElement.innerHTML = `<p class="bg-blue-500 text-white rounded-lg py-2 px-4 inline-block">${message}</p>`;
+        chatbox.appendChild(messageElement);
+        chatbox.scrollTop = chatbox.scrollHeight;
+      }
+
+      function addBotMessage(message) {
+        const messageElement = document.createElement("div");
+        messageElement.classList.add("mb-2");
+        messageElement.innerHTML = `<p class="bg-gray-200 text-gray-700 rounded-lg py-2 px-4 inline-block">${message}</p>`;
+        chatbox.appendChild(messageElement);
+        chatbox.scrollTop = chatbox.scrollHeight;
+      }
+
+      function sendUserMessage(message) {
+        fetch("/predicti", {
+          method: "POST",
+          body: JSON.stringify({ message: message }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            addBotMessage(data.answer);
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+            // Handle error if necessary
+          });
+      }
+
+      // Automatically open the chatbox on page load
+      // toggleChatbox();
+    </script>
+    <script>
+      $SCRIPT_ROOT = {{ request.script_root|tojson }};
+    </script>
+
+    <!-- feature section -->
+    <section class="bg-white py-16 md:mt-10" style="margin-top: -3rem">
+      <div class="container max-w-screen-xl mx-auto px-4">
+        <p
+          class="font-light text-gray-500 text-lg md:text-xl text-center uppercase mb-6"
+        >
+          Our features
+        </p>
+
+        <h1
+          class="font-semibold text-gray-900 text-xl md:text-4xl text-center leading-normal mb-10"
+        >
+          We believe we can save <br />
+          more life with you
+        </h1>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-20">
+          <div class="text-center">
+            <div class="flex justify-center mb-6">
+              <div
+                class="w-20 py-6 flex justify-center bg-blue-200 bg-opacity-30 text-blue-700 rounded-xl"
+              >
+                <i data-feather="globe"></i>
+              </div>
+            </div>
+
+            <h4 class="font-semibold text-lg md:text-2xl text-gray-900 mb-6">
+              Transparent
+            </h4>
+
+            <p class="font-light text-gray-500 text-md md:text-xl mb-6">
+              Donations and distributions can be seen transparently
+            </p>
+
+            <div class="flex justify-center">
+              <a
+                href="#"
+                class="flex items-center gap-5 px-6 py-4 font-semibold text-info text-lg rounded-xl hover:bg-info hover:text-white transition ease-linear duration-500"
+              >
+                Learn more
+                <i data-feather="chevron-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="text-center">
+            <div class="flex justify-center mb-6">
+              <div
+                class="w-20 py-6 flex justify-center bg-blue-200 bg-opacity-30 text-blue-700 rounded-xl"
+              >
+                <i data-feather="arrow-up-right"></i>
+              </div>
+            </div>
+
+            <h4 class="font-semibold text-lg md:text-2xl text-gray-900 mb-6">
+              Quick Fundraise
+            </h4>
+
+            <p class="font-light text-gray-500 text-md md:text-xl mb-6">
+              The simple and quickest way to make a donation
+            </p>
+
+            <div class="flex justify-center">
+              <a
+                href="#"
+                class="flex items-center gap-5 px-6 py-4 font-semibold text-info text-lg rounded-xl hover:bg-info hover:text-white transition ease-linear duration-500"
+              >
+                Learn more
+                <i data-feather="chevron-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="text-center">
+            <div class="flex justify-center mb-6">
+              <div
+                class="w-20 py-6 flex justify-center bg-blue-200 bg-opacity-30 text-blue-700 rounded-xl"
+              >
+                <i data-feather="clock"></i>
+              </div>
+            </div>
+
+            <h4 class="font-semibold text-lg md:text-2xl text-gray-900 mb-6">
+              Real Time
+            </h4>
+
+            <p class="font-light text-gray-500 text-md md:text-xl mb-6">
+              Reports related to donations and distribution are updated directly
+            </p>
+
+            <div class="flex justify-center">
+              <a
+                href="#"
+                class="flex items-center gap-5 px-6 py-4 font-semibold text-info text-lg rounded-xl hover:bg-info hover:text-white transition ease-linear duration-500"
+              >
+                Learn more
+                <i data-feather="chevron-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- container.// -->
+    </section>
+    <!-- feature section //end -->
+
+    <section class="text-gray-600 body-font">
+      <div class="container px-5 py-24 mx-auto">
+        <div class="text-center mb-20">
+          <h1
+            class="sm:text-3xl text-2xl font-medium title-font text-gray-900 mb-4"
+            style="font-size: 1.5rem"
+          >
+            Advanced Tumour Detection Algorithms
+          </h1>
+          <p
+            class="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-gray-500s"
+            style="font-size: 0.9rem"
+          >
+            Our machine learning-powered brain tumor detection system examines
+            data, detects patterns, and identifies potentially problematic
+            behaviors to assist medical professionals in mitigating risks,
+            reducing harm, and ensuring equitable treatment for patients.
+          </p>
+          <div class="flex mt-6 justify-center">
+            <div class="w-16 h-1 rounded-full bg-indigo-500 inline-flex"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- donation section -->
+    <section class="bg-white py-16" style="margin-top: -10em">
+      <div class="container max-w-screen-xl mx-auto px-4">
+        <h1
+          class="font-semibold text-gray-900 text-xl md:text-4xl text-center mb-16"
+        >
+          Latest to donate
+        </h1>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+          <div class="px-6 py-6 w-full border-2 border-gray-200 rounded-3xl">
+            <img
+              src="./static/image/donation-1.png"
+              alt="Image"
+              class="mb-6 hover:opacity-75 transition ease-in-out duration-500"
+            />
+
+            <h4 class="font-semibold text-gray-900 text-lg md:text-2xl mb-6">
+              Help flood victims in <br />
+              Indonesia
+            </h4>
+
+            <p
+              class="font-light text-gray-400 text-sm md:text-md lg:text-lg mb-10"
+            >
+              Help flood victims in Indonesia by <br />
+              donating sincerely, regardless of the...
+            </p>
+
+            <div class="flex items-center justify-between mb-8">
+              <h6 class="font-light text-gray-400 text-sm md:text-lg">
+                Goals :
+                <span class="font-semibold text-gray-900 text-md md:text-lg"
+                  >$25000</span
+                >
+              </h6>
+
+              <h6 class="font-light text-gray-400 text-sm md:text-lg">
+                Raised :
+                <span class="font-semibold text-gray-900 text-md md:text-lg"
+                  >$21000</span
+                >
+              </h6>
+            </div>
+
+            <div
+              class="hidden md:block lg:flex items-center justify-between mb-8"
+            >
+              <div>
+                <div
+                  class="w-72 h-2 bg-info opacity-10 rounded-lg absolute"
+                ></div>
+
+                <div class="w-56 h-2 bg-info rounded-lg relative"></div>
+              </div>
+
+              <p class="font-light text-gray-900 text-md">84%</p>
+            </div>
+
+            <button
+              class="w-full py-4 bg-info font-semibold text-white text-lg rounded-xl hover:bg-blue-800 transition ease-in-out duration-500"
+            >
+              Donate
+            </button>
+          </div>
+
+          <div class="px-6 py-6 w-full border-2 border-gray-200 rounded-3xl">
+            <img
+              src="static/image/donation-2.png"
+              alt="Image"
+              class="mb-6 hover:opacity-75 transition ease-in-out duration-500"
+            />
+
+            <h4 class="font-semibold text-gray-900 text-lg md:text-2xl mb-6">
+              Donation for COVID-19 in <br />
+              Indonesia
+            </h4>
+
+            <p
+              class="font-light text-gray-400 text-sm md:text-md lg:text-lg mb-10"
+            >
+              Donation for COVID-19 in Indonesia by <br />
+              donating sincerely, regardless of the...
+            </p>
+
+            <div class="flex items-center justify-between mb-8">
+              <h6 class="font-light text-gray-400 text-sm md:text-lg">
+                Goals :
+                <span class="font-semibold text-gray-900 text-md md:text-lg"
+                  >$24000</span
+                >
+              </h6>
+
+              <h6 class="font-light text-gray-400 text-sm md:text-lg">
+                Raised :
+                <span class="font-semibold text-gray-900 text-md md:text-lg"
+                  >$19000</span
+                >
+              </h6>
+            </div>
+
+            <div
+              class="hidden md:block lg:flex items-center justify-between mb-8"
+            >
+              <div>
+                <div
+                  class="w-72 h-2 bg-info opacity-10 rounded-lg absolute"
+                ></div>
+
+                <div class="w-52 h-2 bg-info rounded-lg relative"></div>
+              </div>
+
+              <p class="font-light text-gray-900 text-md">80%</p>
+            </div>
+
+            <button
+              class="w-full py-4 bg-info font-semibold text-white text-lg rounded-xl hover:bg-blue-800 transition ease-in-out duration-500"
+            >
+              Donate
+            </button>
+          </div>
+
+          <div class="px-6 py-6 w-full border-2 border-gray-200 rounded-3xl">
+            <img
+              src="static/image/donation-3.png"
+              alt="Image"
+              class="mb-6 hover:opacity-75 transition ease-in-out duration-500"
+            />
+
+            <h4 class="font-semibold text-gray-900 text-lg md:text-2xl mb-6">
+              Help homeless cat to find <br />
+              home
+            </h4>
+
+            <p
+              class="font-light text-gray-400 text-sm md:text-md lg:text-lg mb-10"
+            >
+              Help homeless cat and the oether <br />
+              animals by donating sincerely regar...
+            </p>
+
+            <div class="flex items-center justify-between mb-8">
+              <h6 class="font-light text-gray-400 text-sm md:text-lg">
+                Goals :
+                <span class="font-semibold text-gray-900 text-md md:text-lg"
+                  >$15000</span
+                >
+              </h6>
+
+              <h6 class="font-light text-gray-400 text-sm md:text-lg">
+                Raised :
+                <span class="font-semibold text-gray-900 text-md md:text-lg"
+                  >$13000</span
+                >
+              </h6>
+            </div>
+
+            <div
+              class="hidden md:block lg:flex items-center justify-between mb-8"
+            >
+              <div>
+                <div
+                  class="w-72 h-2 bg-info opacity-10 rounded-lg absolute"
+                ></div>
+
+                <div class="w-60 h-2 bg-info rounded-lg relative"></div>
+              </div>
+
+              <p class="font-light text-gray-900 text-md">86%</p>
+            </div>
+
+            <button
+              class="w-full py-4 bg-info font-semibold text-white text-lg rounded-xl hover:bg-blue-800 transition ease-in-out duration-500"
+            >
+              Donate
+            </button>
+          </div>
+
+          <div class="px-6 py-6 w-full border-2 border-gray-200 rounded-3xl">
+            <img
+              src="static/image/donation-4.png"
+              alt="Image"
+              class="mb-6 hover:opacity-75 transition ease-in-out duration-500"
+            />
+
+            <h4 class="font-semibold text-gray-900 text-lg md:text-2xl mb-6">
+              Help save poor children in <br />
+              Pakistan
+            </h4>
+
+            <p
+              class="font-light text-gray-400 text-sm md:text-md lg:text-lg mb-10"
+            >
+              Help save poor children in Pakistas by <br />
+              donating sincerely, regardless of the...
+            </p>
+
+            <div class="flex items-center justify-between mb-8">
+              <h6 class="font-light text-gray-400 text-sm md:text-lg">
+                Goals :
+                <span class="font-semibold text-gray-900 text-md md:text-lg"
+                  >$75000</span
+                >
+              </h6>
+
+              <h6 class="font-light text-gray-400 text-sm md:text-lg">
+                Raised :
+                <span class="font-semibold text-gray-900 text-md md:text-lg"
+                  >$50000</span
+                >
+              </h6>
+            </div>
+
+            <div
+              class="hidden md:block lg:flex items-center justify-between mb-8"
+            >
+              <div>
+                <div
+                  class="w-72 h-2 bg-info opacity-10 rounded-lg absolute"
+                ></div>
+
+                <div class="w-48 h-2 bg-info rounded-lg relative"></div>
+              </div>
+
+              <p class="font-light text-gray-900 text-md">66%</p>
+            </div>
+
+            <button
+              class="w-full py-4 bg-info font-semibold text-white text-lg rounded-xl hover:bg-blue-800 transition ease-in-out duration-500"
+            >
+              Donate
+            </button>
+          </div>
+
+          <div class="px-6 py-6 w-full border-2 border-gray-200 rounded-3xl">
+            <img
+              src="static/image/donation-5.png"
+              alt="Image"
+              class="mb-6 hover:opacity-75 transition ease-in-out duration-500"
+            />
+
+            <h4 class="font-semibold text-gray-900 text-lg md:text-2xl mb-6">
+              Lifeskills for children in <br />
+              South Africa
+            </h4>
+
+            <p
+              class="font-light text-gray-400 text-sm md:text-md lg:text-lg mb-10"
+            >
+              Donating for children in South Africa <br />
+              by donating sincerely, regardless of...
+            </p>
+
+            <div class="flex items-center justify-between mb-8">
+              <h6 class="font-light text-gray-400 text-sm md:text-lg">
+                Goals :
+                <span class="font-semibold text-gray-900 text-md md:text-lg"
+                  >$45000</span
+                >
+              </h6>
+
+              <h6 class="font-light text-gray-400 text-sm md:text-lg">
+                Raised :
+                <span class="font-semibold text-gray-900 text-md md:text-lg"
+                  >$22500</span
+                >
+              </h6>
+            </div>
+
+            <div
+              class="hidden md:block lg:flex items-center justify-between mb-8"
+            >
+              <div>
+                <div
+                  class="w-72 h-2 bg-info opacity-10 rounded-lg absolute"
+                ></div>
+
+                <div class="w-36 h-2 bg-info rounded-lg relative"></div>
+              </div>
+
+              <p class="font-light text-gray-900 text-md">50%</p>
+            </div>
+
+            <button
+              class="w-full py-4 bg-info font-semibold text-white text-lg rounded-xl hover:bg-blue-800 transition ease-in-out duration-500"
+            >
+              Donate
+            </button>
+          </div>
+
+          <div class="px-6 py-6 w-full border-2 border-gray-200 rounded-3xl">
+            <img
+              src="static/image/donation-6.png"
+              alt="Image"
+              class="mb-6 hover:opacity-75 transition ease-in-out duration-500"
+            />
+
+            <h4 class="font-semibold text-gray-900 text-lg md:text-2xl mb-6">
+              Help donate for children <br />
+              with cancer
+            </h4>
+
+            <p
+              class="font-light text-gray-400 text-sm md:text-md lg:text-lg mb-10"
+            >
+              Help donate for the children with <br />
+              cancer by donating sincerely, regar...
+            </p>
+
+            <div class="flex items-center justify-between mb-8">
+              <h6 class="font-light text-gray-400 text-sm md:text-lg">
+                Goals :
+                <span class="font-semibold text-gray-900 text-md md:text-lg"
+                  >$50000</span
+                >
+              </h6>
+
+              <h6 class="font-light text-gray-400 text-sm md:text-lg">
+                Raised :
+                <span class="font-semibold text-gray-900 text-md md:text-lg"
+                  >$13000</span
+                >
+              </h6>
+            </div>
+
+            <div
+              class="hidden md:block lg:flex items-center justify-between mb-8"
+            >
+              <div>
+                <div
+                  class="w-72 h-2 bg-info opacity-10 rounded-lg absolute"
+                ></div>
+
+                <div class="w-20 h-2 bg-info rounded-lg relative"></div>
+              </div>
+
+              <p class="font-light text-gray-900 text-md">26%</p>
+            </div>
+
+            <button
+              class="w-full py-4 bg-info font-semibold text-white text-lg rounded-xl hover:bg-blue-800 transition ease-in-out duration-500"
+            >
+              Donate
+            </button>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-center">
+          <button
+            class="px-7 py-5 font-semibold bg-gray-100 text-gray-900 rounded-2xl hover:bg-gray-300 hover:text-gray-600 transition ease-in-out duration-500"
+          >
+            More to donate
+          </button>
+        </div>
+      </div>
+      <!-- container.// -->
+    </section>
+    <!-- donation section //end -->
+
+    <!-- feature section -->
+    <section class="bg-white py-16">
+      <div class="container max-w-screen-xl mx-auto px-4">
+        <div class="flex flex-col lg:flex-row justify-between space-x-16">
+          <div class="flex justify-center lg:justify-start">
+            <img src="static/image/feature-img.png" alt="Image" />
+          </div>
+
+          <div class="mt-16">
+            <h1 class="font-semibold text-gray-900 text-xl md:text-4xl mb-20">
+              You can help lots of people by <br />
+              donating
+            </h1>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 md:space-x-20 mb-16">
+              <div class="mb-5 md:mb-0">
+                <div
+                  class="w-20 py-6 flex justify-center bg-info bg-opacity-5 rounded-xl mb-4"
+                >
+                  <i data-feather="sun" class="text-info"></i>
+                </div>
+
+                <h3
+                  class="font-semibold text-gray-900 text-xl md:text-3xl mb-4"
+                >
+                  10000+
+                </h3>
+
+                <p class="font-light text-gray-400 text-md md:text-lg">
+                  Fundraising campaign in <br />
+                  all time
+                </p>
+              </div>
+
+              <div>
+                <div
+                  class="w-20 py-6 flex justify-center bg-red-500 bg-opacity-5 rounded-xl mb-4"
+                >
+                  <i data-feather="award" class="text-red-500"></i>
+                </div>
+
+                <h3
+                  class="font-semibold text-gray-900 text-xl md:text-3xl mb-4"
+                >
+                  $120M+
+                </h3>
+
+                <p class="font-light text-gray-400 text-md md:text-lg">
+                  Raised and counting <br />
+                  donations in all time
+                </p>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 md:space-x-20">
+              <div class="mb-5 md:mb-0">
+                <div
+                  class="w-20 py-6 flex justify-center bg-yellow-500 bg-opacity-5 rounded-xl mb-4"
+                >
+                  <i data-feather="users" class="text-yellow-500"></i>
+                </div>
+
+                <h3
+                  class="font-semibold text-gray-900 text-xl md:text-3xl mb-4"
+                >
+                  1200+
+                </h3>
+
+                <p class="font-light text-gray-400 text-md md:text-lg">
+                  Our volunteer around the <br />
+                  world
+                </p>
+              </div>
+
+              <div>
+                <div
+                  class="w-20 py-6 flex justify-center bg-green-500 bg-opacity-5 rounded-xl mb-4"
+                >
+                  <i data-feather="trending-up" class="text-green-500"></i>
+                </div>
+
+                <h3
+                  class="font-semibold text-gray-900 text-xl md:text-3xl mb-4"
+                >
+                  98%
+                </h3>
+
+                <p class="font-light text-gray-400 text-md md:text-lg">
+                  Positive review from <br />
+                  public
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- container.// -->
+    </section>
+    <!-- feature section //end -->
+
+    <!-- join volunters section -->
+    <section class="bg-white py-16">
+      <div class="container max-w-screen-xl mx-auto px-4">
+        <div
+          class="w-full h-full bg-blue-500 rounded-2xl md:rounded-3xl relative lg:flex items-center"
+        >
+          <div class="hidden lg:block">
+            <img
+              src="static/image/humans.png"
+              alt="Image"
+              class="relative z-10"
+            />
+
+            <img
+              src="static/image/pattern-2.png"
+              alt="Image"
+              class="absolute top-14 left-40"
+            />
+
+            <img
+              src="static/image/pattern.png"
+              alt="Image"
+              class="absolute top-0 z-0"
+            />
+          </div>
+
+          <div class="lg:relative py-4 lg:py-0">
+            <h1
+              class="font-semibold text-white text-xl md:text-4xl text-center lg:text-left leading-normal md:mb-5 lg:mb-10"
+            >
+              Interested in volunteering? Join <br />
+              with us now
+            </h1>
+
+            <div
+              class="hidden md:block flex items-center text-center lg:text-left space-x-5"
+            >
+              <input
+                type="text"
+                placeholder="Email"
+                class="px-4 py-4 w-96 bg-gray-50 placeholder-gray-400 rounded-xl outline-none"
+              />
+
+              <button
+                class="px-6 py-4 font-semibold bg-gray-50 text-info text-lg rounded-xl hover:bg-blue-500 hover:text-white transition ease-in-out duration-500"
+              >
+                Join
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- container.// -->
+    </section>
+    <!-- join volunters section //end -->
+
+    <footer class="text-gray-600 body-font">
+      <div
+        class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col"
+      >
+        <a
+          class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900"
+        >
+          <img
+            src="static/images/rawImage.png"
+            class="w-10 h-10 p-2 bg-white-500 rounded-full"
+          />
+
+          <span class="ml-3 text-xl">Claim Trust</span>
+        </a>
+        <p
+          class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4"
+        >
+          © 2024 All Right are Reserved —
+          <a
+            href="#"
+            class="text-gray-600 ml-1"
+            rel="noopener noreferrer"
+            target="_blank"
+            >Claim Trust</a
+          >
+        </p>
+        <span
+          class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start"
+        >
+          <a
+            href="https://www.instagram.com/invites/contact/?i=8zkglwdp1l2d&utm_content=3hmbmst"
+            class="ml-3 text-gray-500"
+          >
+            <svg
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              class="w-5 h-5"
+              viewBox="0 0 24 24"
+            >
+              <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+              <path
+                d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"
+              ></path>
+            </svg>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/deepeshkumar2104/"
+            class="ml-3 text-gray-500"
+          >
+            <svg
+              fill="currentColor"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="0"
+              class="w-5 h-5"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke="none"
+                d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
+              ></path>
+              <circle cx="4" cy="4" r="2" stroke="none"></circle>
+            </svg>
+          </a>
+        </span>
+      </div>
+    </footer>
+
+    <script>
+      feather.replace();
+    </script>
+  </body>
+</html>
