@@ -234,10 +234,10 @@ def dashboard():
     if "user_id" in session:
         user_id = session["user_id"]
         user = collection.find_one({"_id": ObjectId(user_id)})
-        return render_template("dashboard.html")
+        return render_template("home.html")
     else:
         flash("Please log in first", "warning")
-        return redirect(url_for("login"))
+        return redirect(url_for("login1"))
 
 @app.route("/services", methods=["GET", "POST"])
 def services():
