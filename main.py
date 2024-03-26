@@ -181,8 +181,6 @@ def getResult(img_paths):
         results.append(result)
     return results
 
-
-
 @app.route('/multiimg', methods=['GET', 'POST'])
 def multiimg():
     results = []
@@ -191,9 +189,12 @@ def multiimg():
         files = request.files.getlist('files[]')
         for file in files:
             filename = secure_filename(file.filename)
-            file_path = os.path.join('static/uploads', filename)
-            file.save(file_path)
-            file_paths.append(file_path)
+            file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            try:
+                file.save(file_path)
+                file_paths.append(file_path)
+            except Exception as e:
+                print("Error saving file:", e)
         results = getResult(file_paths)
     return render_template('multiimage.html', results=zip(file_paths, results))
 
