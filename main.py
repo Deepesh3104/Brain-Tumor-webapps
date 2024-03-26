@@ -55,7 +55,8 @@ import random
 
 
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static')
+
 
 # Flask-Mail configuration
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
@@ -106,6 +107,9 @@ def index():
 # Tummor Implementations
 
 model = load_model('BrainTumor10EpochsCategorical.h5')
+print("Loading model...")
+
+print("Model loaded successfully.")
 print('Model loaded. Check http://127.0.0.1:5000/')
 
 def get_className(classNo):
@@ -114,33 +118,101 @@ def get_className(classNo):
     elif classNo == 1:
         return "Yes Brain Tumor"
 
-def getResult(img):
+def getResult1(img):
     image = cv2.imread(img)
     image = Image.fromarray(image, 'RGB')
     image = image.resize((64, 64))
     image = np.array(image)
     input_img = np.expand_dims(image, axis=0)
     result = np.argmax(model.predict(input_img), axis=1)
+    print("Predicted class index:", result)
+    print("Predicted class:", get_className(result))
+    
     return result
 
-
-@app.route('/singleimg', methods=['GET', 'POST'])
-def singleimg():
+@app.route('/tumor', methods=['POST'])
+def upload():
     if request.method == 'POST':
-        # Check if the form contains a file input named 'file'
-        if 'file' in request.files:
-            f = request.files['file']
-            if f.filename != '':
-                file_path = os.path.join('uploads', secure_filename(f.filename))
-                f.save(file_path)
-                value = getResult(file_path)
-                result = get_className(value[0])
-                # Determine where the upload function is called from and redirect accordingly
-                if request.form.get('from_dashboard'):
-                    return redirect(url_for('dashboard'))  # Redirect to the dashboard page
-                elif request.form.get('from_prediction'):
-                    return redirect(url_for('prediction'))  # Redirect to the prediction page
+        f = request.files['file']
+        if f:
+            file_path = os.path.join('static/uploads', secure_filename(f.filename))
+            f.save(file_path)
+            value = getResult1(file_path)
+            result = get_className(value[0])
+            image_url = url_for('static', filename='uploads/' + secure_filename(f.filename))
+            return render_template('singleimg.html', result=result, image_url=image_url, f=f)
+    return "No image uploaded!"
+# Print the predicted class index
+
+
+# Print the predicted class name
+
+
+
+@app.route('/singleimg', methods=['GET'])
+def singleimg():
     return render_template('singleimg.html')
+
+# Multi Image Started
+
+
+
+UPLOAD_FOLDER = 'static/uploads'  # Define the uploads folder
+STATIC_FOLDER = 'static'   # Define the static folder
+
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.config['STATIC_FOLDER'] = STATIC_FOLDER
+
+def get_className(classNo):
+    if classNo == 0:
+        return "No Brain Tumor"
+    elif classNo == 1:
+        return "Yes Brain Tumor"
+
+def getResult(img_paths):
+    results = []
+    for img_path in img_paths:
+        image = cv2.imread(img_path)
+        image = Image.fromarray(image, 'RGB')
+        image = image.resize((64, 64))
+        image = np.array(image)
+        input_img = np.expand_dims(image, axis=0)
+        result = get_className(np.argmax(model.predict(input_img), axis=1)[0])
+        results.append(result)
+    return results
+
+
+
+@app.route('/multiimg', methods=['GET', 'POST'])
+def multiimg():
+    results = []
+    file_paths = []  # Initialize file_paths as an empty list
+    if request.method == 'POST':
+        files = request.files.getlist('files[]')
+        for file in files:
+            filename = secure_filename(file.filename)
+            file_path = os.path.join('static/uploads', filename)
+            file.save(file_path)
+            file_paths.append(file_path)
+        results = getResult(file_paths)
+    return render_template('multiimage.html', results=zip(file_paths, results))
+
+@app.route('/tumor2', methods=['POST'])
+def predict():
+    if request.method == 'POST':
+        files = request.files.getlist('files[]')
+        file_paths = []
+        for file in files:
+            filename = secure_filename(file.filename)
+            file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            file.save(file_path)
+            file_paths.append(file_path)
+        results = getResult(file_paths)
+        return render_template('multiimage.html', results=zip(file_paths, results))
+
+# multi image end
+
+
 
 # tummor Implementation end here 
 

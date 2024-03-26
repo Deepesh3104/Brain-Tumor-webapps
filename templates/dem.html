@@ -1,239 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
+        integrity="sha512-wnea99uKIC3TJF7v4eKk4Y+lMz2Mklv18+r4na2Gn1abDRPPOeef95xTzdwGD9e6zXJBteMIhZ1+68QC5byJZw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Brain Tumor Detection</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
-      integrity="sha512-wnea99uKIC3TJF7v4eKk4Y+lMz2Mklv18+r4na2Gn1abDRPPOeef95xTzdwGD9e6zXJBteMIhZ1+68QC5byJZw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-  </head>
+    <title>Brain Tumor Detection Web</title>
+</head>
 
-  <body class="bg-gray-100">
-    <!-- Sidebar -->
-    <aside
-      class="flex flex-col w-64 h-screen px-5 py-8 overflow-y-auto bg-white border-r dark:bg-gray-900 dark:border-gray-700"
-    >
-      <a href="#" class="mb-8">
-        <img class="w-auto h-7" src="../assets/image/logo1.png" alt="Logo" />
-      </a>
+<body>
+    <!-- side bar content -->
+    <aside class="flex flex-col w-64 h-screen px-5 py-8 overflow-y-auto bg-white border-r rtl:border-r-0 rtl:border-l dark:bg-gray-900 dark:border-gray-700"
+        style="position: fixed; overflow-y: auto">
+        <a href="#">
+            <img class="w-auto h-7" src="../assets/image/logo1.png" alt="" />
+        </a>
 
-      <nav class="flex-1 space-y-3">
-        <div class="relative">
-          <span class="absolute inset-y-0 left-0 flex items-center pl-3">
-            <svg class="w-5 h-5 text-gray-400" viewBox="0 0 24 24" fill="none">
-              <path
-                d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              ></path>
-            </svg>
-          </span>
-          <input
-            type="text"
-            class="w-full py-1.5 pl-10 pr-4 text-gray-700 bg-white border rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring"
-            placeholder="Search"
-          />
-        </div>
+        <div class="flex flex-col justify-between flex-1 mt-6">
+            <nav class="flex-1 -mx-3 space-y-3">
+                <!-- Navigation Links -->
+            </nav>
 
-        <a href="#" class="sidebar-link">Home</a>
-        <a href="#" class="sidebar-link">Single Image Detections</a>
-        <a href="#" class="sidebar-link">Multi Image Analysis</a>
-        <a href="#" class="sidebar-link">Patient Details</a>
-        <a href="#" class="sidebar-link">Help & Support</a>
-      </nav>
-
-      <div class="mt-8">
-        <div class="p-4 bg-gray-100 rounded-lg dark:bg-gray-800">
-          <h2 class="text-sm font-medium text-gray-800 dark:text-white">
-            New feature available!
-          </h2>
-          <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus harum
-            officia eligendi velit.
-          </p>
-          <img
-            class="object-cover w-full h-32 mt-2 rounded-lg"
-            src="https://via.placeholder.com/400"
-            alt="New Feature Image"
-          />
-        </div>
-      </div>
-    </aside>
-    <!-- End Sidebar -->
-
-    <!-- Main Content -->
-    <main class="ml-64 p-8">
-      <div class="max-w-4xl mx-auto">
-        <h1 class="text-3xl font-bold text-center mb-8">
-          Brain Tumor Detection
-        </h1>
-
-        <!-- Form for uploading image -->
-        <div class="w-full h-screen bg-white">
-          <div
-            class="container mx-auto h-full flex flex-col justify-center items-center"
-          >
-            <div id="images-container"></div>
-            <div class="flex w-full justify-center">
-              <div
-                id="multi-upload-button"
-                class="inline-flex items-center px-4 py-2 bg-gray-600 border border-gray-600 rounded-l font-semibold cursor-pointer text-sm text-white tracking-widest hover:bg-gray-500 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition"
-              >
-                Click to browse
-              </div>
-              <div
-                class="w-4/12 lg:w-3/12 border border-gray-300 rounded-r-md flex items-center justify-between"
-              >
-                <span id="multi-upload-text" class="p-2"></span>
-                <button
-                  id="multi-upload-delete"
-                  class="hidden"
-                  onclick="removeMultiUpload()"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="fill-current text-red-700 w-3 h-3"
-                    viewBox="0 0 320 512"
-                  >
-                    <path
-                      d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"
-                    />
-                  </svg>
-                </button>
-              </div>
+            <div class="mt-6">
+                <!-- New Feature Section -->
             </div>
-            <input
-              type="file"
-              id="multi-upload-input"
-              class="hidden"
-              multiple
-            />
-          </div>
         </div>
+    </aside>
+    <!-- sidebarend -->
+    <main class="ml-64 p-8">
+        <div>
+            <center style="margin-left: 20rem; font-size: 4rem; font-family: 'Times New Roman', sans-serif; font-weight: bold; color: black; font-style: italic; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">
+                Brain Tumor Detections Web
+            </center>
+        </div>
+        <div>
+            <center>
+                <!-- File Upload Section -->
+                <div class="bg--500 h-screen w-screen sm:px-8 md:px-16 sm:py-8">
+                    <main class="container mx-auto max-w-screen-lg h-full">
+                        <form id="upload-form" enctype="multipart/form-data">
+                            <!-- file upload modal -->
+                            <article aria-label="File Upload Modal"
+                                class="relative h-full flex flex-col bg-white shadow-xl rounded-md"
+                                ondrop="dropHandler(event);" ondragover="dragOverHandler(event);"
+                                ondragleave="dragLeaveHandler(event);" ondragenter="dragEnterHandler(event);">
+                                <!-- overlay -->
+                                <div id="overlay"
+                                    class="w-full h-full absolute top-0 left-0 pointer-events-none z-50 flex flex-col items-center justify-center rounded-md">
+                                    <i>
+                                        <svg class="fill-current w-12 h-12 mb-3 text-blue-700"
+                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24">
+                                            <!-- SVG Path for upload icon -->
+                                        </svg>
+                                    </i>
+                                    <p class="text-lg text-blue-700">Drop files to upload</p>
+                                </div>
 
-        <!-- Prediction result display -->
-        <div class="bg-gray-100 rounded-lg p-8 mt-8">
-          <h2 class="text-xl font-semibold text-gray-800 mb-4">
-            Prediction Result:
-          </h2>
-          <div class="flex items-center justify-center">
-            <img
-              src="https://via.placeholder.com/400"
-              alt="Prediction Result"
-              class="w-64 h-auto"
-            />
-          </div>
-          <p class="text-lg text-gray-700 mt-4">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
-            aliquet lorem non viverra posuere.
-          </p>
+                                <!-- scroll area -->
+                                <section
+                                    class="h-full overflow-hidden p-8 w-full h-full flex flex-col">
+                                    <!-- File Upload Header -->
+                                    <header
+                                        class="border-dashed border-2 border-gray-400 py-12 flex flex-col justify-center items-center">
+                                        <p
+                                            class="mb-3 font-semibold text-gray-900 flex flex-wrap justify-center">
+                                            <span>Drag and drop your</span>&nbsp;<span>files anywhere or</span>
+                                        </p>
+                                        <!-- Hidden Input for File Upload -->
+                                        <input id="hidden-input" type="file" name="files[]" multiple class="hidden" />
+                                        <button id="button"
+                                            class="mt-2 rounded-sm px-3 py-1 bg-gray-200 hover:bg-gray-300 focus:shadow-outline focus:outline-none">
+                                            Upload a file
+                                        </button>
+                                    </header>
+
+                                    <!-- Uploaded File Preview and Results Table -->
+                                    <h1 class="pt-8 pb-3 font-semibold sm:text-lg text-gray-900">
+                                        Uploaded Images and Predictions
+                                    </h1>
+                                    <div id="uploaded-files" class="flex flex-wrap -m-1">
+                                        <!-- Uploaded Files and Predictions will be displayed here -->
+                                    </div>
+                                </section>
+
+                                <!-- Footer with Upload and Cancel Buttons -->
+                                <footer class="flex justify-end px-8 pb-8 pt-4">
+                                    <button id="submit"
+                                        class="rounded-sm px-3 py-1 bg-blue-700 hover:bg-blue-500 text-white focus:shadow-outline focus:outline-none">
+                                        Upload now
+                                    </button>
+                                    <button id="cancel"
+                                        class="ml-3 rounded-sm px-3 py-1 hover:bg-gray-300 focus:shadow-outline focus:outline-none">
+                                        Cancel
+                                    </button>
+                                </footer>
+                            </article>
+                        </form>
+                    </main>
+                </div>
+            </center>
         </div>
-      </div>
     </main>
-    <!-- End Main Content -->
 
     <script>
-      // JavaScript functions for multi-upload functionality
-      // Add your JavaScript code here...
-      <script>
-          //all ids and some classes are importent for this script
-
-          multiUploadButton = document.getElementById("multi-upload-button");
-          multiUploadInput = document.getElementById("multi-upload-input");
-          imagesContainer = document.getElementById("images-container");
-          multiUploadDisplayText = document.getElementById("multi-upload-text");
-          multiUploadDeleteButton = document.getElementById(
-            "multi-upload-delete"
-          );
-
-          multiUploadButton.onclick = function () {
-            multiUploadInput.click(); // this will trigger the click event
-          };
-
-          multiUploadInput.addEventListener("change", function (event) {
-            if (multiUploadInput.files) {
-              let files = multiUploadInput.files;
-
-              // show the text for the upload button text filed
-              multiUploadDisplayText.innerHTML =
-                files.length + " files selected";
-
-              // removes styles from the images wrapper container in case the user readd new images
-              imagesContainer.innerHTML = "";
-              imagesContainer.classList.remove(
-                "w-full",
-                "grid",
-                "grid-cols-1",
-                "sm:grid-cols-2",
-                "md:grid-cols-3",
-                "lg:grid-cols-4",
-                "gap-4"
-              );
-
-              // add styles to the images wrapper container
-              imagesContainer.classList.add(
-                "w-full",
-                "grid",
-                "grid-cols-1",
-                "sm:grid-cols-2",
-                "md:grid-cols-3",
-                "lg:grid-cols-4",
-                "gap-4"
-              );
-
-              // the delete button to delete all files
-              multiUploadDeleteButton.classList.add("z-100", "p-2", "my-auto");
-              multiUploadDeleteButton.classList.remove("hidden");
-
-              Object.keys(files).forEach(function (key) {
-                let file = files[key];
-
-                // the FileReader object is needed to display the image
-                let reader = new FileReader();
-                reader.readAsDataURL(file);
-                reader.onload = function () {
-                  // for each file we create a div to contain the image
-                  let imageDiv = document.createElement("div");
-                  imageDiv.classList.add(
-                    "h-64",
-                    "mb-3",
-                    "w-full",
-                    "p-3",
-                    "rounded-lg",
-                    "bg-cover",
-                    "bg-center"
-                  );
-                  imageDiv.style.backgroundImage = "url(" + reader.result + ")";
-                  imagesContainer.appendChild(imageDiv);
-                };
-              });
-            }
-          });
-
-          function removeMultiUpload() {
-            imagesContainer.innerHTML = "";
-            imagesContainer.classList.remove(
-              "w-full",
-              "grid",
-              "grid-cols-1",
-              "sm:grid-cols-2",
-              "md:grid-cols-3",
-              "lg:grid-cols-4",
-              "gap-4"
-            );
-            multiUploadInput.value = "";
-            multiUploadDisplayText.innerHTML = "";
-            multiUploadDeleteButton.classList.add("hidden");
-            multiUploadDeleteButton.classList.remove("z-100", "p-2", "my-auto");
-          }
-        </script>
+        // JavaScript code for file upload functionality
     </script>
-  </body>
+</body>
+
 </html>

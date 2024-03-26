@@ -19,7 +19,7 @@
       style="position: fixed; overflow-y: auto"
     >
       <a href="#">
-        <img class="w-auto h-7" src="../assets/image/logo1.png" alt="" />
+        <img class="w-auto h-7" src="../static/image/logo1.png" alt="" />
       </a>
 
       <div class="flex flex-col justify-between flex-1 mt-6">
@@ -50,7 +50,7 @@
 
           <a
             class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
-            href="#"
+            href="./dashboard"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -96,7 +96,7 @@
 
           <a
             class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
-            href="#"
+            href="./multiimg"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -242,84 +242,53 @@
         </h1>
 
         <!-- Form for uploading image -->
-        <div class="flex flex-col items-center">
-          <div class="w-full bg-white rounded-lg shadow-md p-6 mb-8">
-            <label
-              for="multi-upload-input"
-              class="block text-lg font-semibold text-gray-800 mb-4"
-            >
-              Upload MRI Images for Analysis
-            </label>
-            <div class="flex items-center">
-              <label
-                id="multi-upload-button"
-                class="inline-flex items-center justify-center w-1/2 bg-blue-500 text-white rounded-md cursor-pointer py-2 transition duration-300 ease-in-out hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-6 w-6 mr-2"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-                  ></path>
-                </svg>
-                Click to browse
-              </label>
-              <span id="multi-upload-text" class="w-1/2 ml-4"></span>
-            </div>
-            <input
-              type="file"
-              id="multi-upload-input"
-              class="hidden"
-              multiple
-            />
-            <button
-              id="multi-upload-delete"
-              class="hidden mt-4 text-sm text-red-600 hover:text-red-800 focus:outline-none"
-              onclick="removeMultiUpload()"
-            >
-              Remove All
-            </button>
-          </div>
-          <div
-            id="images-container"
-            class="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
-          ></div>
-        </div>
-
-        <!-- Prediction result display -->
-        <!-- Prediction result display -->
-        <div class="bg-gray-100 rounded-lg p-8">
-          <h2 class="text-xl font-semibold text-gray-800 mb-4">
-            Prediction Result
-          </h2>
-          <div class="flex items-center justify-center">
-            <img
-              src="https://via.placeholder.com/400"
-              alt="Prediction Result"
-              class="w-64 h-auto prediction-image"
-              <!--
-              Add
-              prediction-image
-              class
-              here
-              --
-            />
-            />
-          </div>
-          <p class="text-lg text-gray-700 mt-4">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
-            aliquet lorem non viverra posuere.
-          </p>
-        </div>
+<!-- Form for uploading image -->
+<form id="upload-file" method="post" enctype="multipart/form-data" action="/tumor">
+  <div class="flex flex-col items-center">
+    <div class="w-full bg-white rounded-lg shadow-md p-6 mb-8">
+      <label for="multi-upload-input" class="block text-lg font-semibold text-gray-800 mb-4">
+        Upload MRI Images for Analysis
+      </label>
+      <div class="flex items-center">
+        <label id="multi-upload-button" class="inline-flex items-center justify-center w-1/2 bg-blue-500 text-white rounded-md cursor-pointer py-2 transition duration-300 ease-in-out hover:bg-blue-600 focus:outline-none focus:bg-blue-600">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+          </svg>
+          Click to browse
+        </label>
+        <span id="multi-upload-text" class="w-1/2 ml-4"></span>
       </div>
+      <input type="file" id="multi-upload-input" class="hidden" multiple name="file">
+      <button id="multi-upload-delete" class="hidden mt-4 text-sm text-red-600 hover:text-red-800 focus:outline-none" onclick="removeMultiUpload()">
+        Remove All
+      </button>
+    </div>
+    <div id="images-container" class="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"></div>
+  </div>
+
+  <!-- Submit button -->
+  <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-md mt-4 focus:outline-none hover:bg-blue-600 focus:bg-blue-600 transition duration-300 ease-in-out">
+    Upload and Analyze
+  </button>
+</form>
+
+<!-- Prediction result display -->
+<div class="bg-gray-100 rounded-lg p-8" style="margin-top: 2rem;">
+  <h2 class="text-xl font-semibold text-gray-800 mb-4">
+    Prediction Result
+  </h2>
+  <div class="flex items-center justify-center">
+    <img src="{{ image_url }}" alt="Uploaded Image" class="w-64 h-auto prediction-image">
+  </div>
+  <p class="text-lg text-gray-700 mt-4" style="text-align: center;">
+    Prediction Result: {{ result }}
+  </p>
+</div>
+
+
       <script>
+        // Assume you have variables containing the predicted image URL and the prediction result text
+
         // Get elements
         const multiUploadButton = document.getElementById(
           "multi-upload-button"
@@ -371,31 +340,7 @@
           multiUploadDisplayText.innerHTML = "";
           multiUploadDeleteButton.classList.add("hidden");
         }
-        // Get prediction button and prediction result image
-        const predictionButton = document.createElement("button");
-        predictionButton.textContent = "Predict";
-        predictionButton.classList.add(
-          "bg-blue-500",
-          "text-white",
-          "py-2",
-          "px-4",
-          "rounded-md",
-          "mt-4",
-          "focus:outline-none",
-          "hover:bg-blue-600",
-          "focus:bg-blue-600",
-          "transition",
-          "duration-300",
-          "ease-in-out"
-        );
-        predictionButton.onclick = function () {
-          // Simulate prediction process
-          const predictionImage = document.querySelector(".prediction-image");
-          predictionImage.src = "path_to_prediction_image.jpg"; // Replace with actual prediction image URL
-        };
-
-        // Append prediction button to the container
-        document.querySelector(".max-w-4xl").appendChild(predictionButton);
+        
       </script>
     </main>
   </body>
