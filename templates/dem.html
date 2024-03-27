@@ -1,113 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <!-- Bootstrap CSS -->
 
-<head>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
-        integrity="sha512-wnea99uKIC3TJF7v4eKk4Y+lMz2Mklv18+r4na2Gn1abDRPPOeef95xTzdwGD9e6zXJBteMIhZ1+68QC5byJZw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Brain Tumor Detection Web</title>
-</head>
+    <link
+      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
 
-<body>
-    <!-- side bar content -->
-    <aside class="flex flex-col w-64 h-screen px-5 py-8 overflow-y-auto bg-white border-r rtl:border-r-0 rtl:border-l dark:bg-gray-900 dark:border-gray-700"
-        style="position: fixed; overflow-y: auto">
-        <a href="#">
-            <img class="w-auto h-7" src="../assets/image/logo1.png" alt="" />
-        </a>
-
-        <div class="flex flex-col justify-between flex-1 mt-6">
-            <nav class="flex-1 -mx-3 space-y-3">
-                <!-- Navigation Links -->
-            </nav>
-
-            <div class="mt-6">
-                <!-- New Feature Section -->
+    <title></title>
+  </head>
+  <body>
+    <section class="text-gray-600 body-font relative">
+      <div class="container px-5 py-24 mx-auto">
+        <div class="flex flex-col text-center w-full mb-12">
+          <h1
+            class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900"
+          >
+            Contact Us
+          </h1>
+          <p class="lg:w-2/3 mx-auto leading-relaxed text-base">
+            Welcome to Claim Trust, if you want to contact us, then feel free to
+            say anything about. We'll appreciate your feedback.
+          </p>
+        </div>
+        <div class="lg:w-1/2 md:w-2/3 mx-auto">
+          <form action="/submit" method="POST" class="flex flex-wrap -m-2">
+            <div class="p-2 w-1/2">
+              <div class="relative">
+                <label for="name" class="leading-7 text-sm text-gray-600"
+                  >Name</label
+                >
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                />
+              </div>
             </div>
+            <div class="p-2 w-1/2">
+              <div class="relative">
+                <label for="email" class="leading-7 text-sm text-gray-600"
+                  >Email</label
+                >
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                />
+              </div>
+            </div>
+            <div class="p-2 w-full">
+              <div class="relative">
+                <label for="message" class="leading-7 text-sm text-gray-600"
+                  >Message</label
+                >
+                <textarea
+                  id="message"
+                  name="message"
+                  class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
+                ></textarea>
+              </div>
+            </div>
+            <div class="p-2 w-full">
+              <button
+                type="submit"
+                class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+              >
+                Submit
+              </button>
+            </div>
+          </form>
+          <div
+            class="p-2 w-full pt-8 mt-8 border-t border-gray-200 text-center"
+          >
+            <a class="text-indigo-500">contactus@claimtrust.com</a>
+            <p class="leading-normal my-5">
+              SSIPMT Boys Hostel. <br />Old Dhamtri Road, Raipur
+            </p>
+            <span class="inline-flex">
+              <a
+                href="https://www.linkedin.com/in/deeksha-yadav-65a81a239"
+                class="ml-3 text-gray-500"
+              >
+                <svg
+                  fill="currentColor"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="0"
+                  class="w-5 h-5"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke="none"
+                    d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
+                  ></path>
+                  <circle cx="4" cy="4" r="2" stroke="none"></circle>
+                </svg>
+              </a>
+              <a
+                href="https://www.instagram.com/invites/contact/?i=8zkglwdp1l2d&utm_content=3hmbmst"
+                class="ml-4 text-gray-500"
+              >
+                <svg
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  class="w-5 h-5"
+                  viewBox="0 0 24 24"
+                >
+                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                  <path
+                    d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"
+                  ></path>
+                </svg>
+              </a>
+            </span>
+          </div>
         </div>
-    </aside>
-    <!-- sidebarend -->
-    <main class="ml-64 p-8">
-        <div>
-            <center style="margin-left: 20rem; font-size: 4rem; font-family: 'Times New Roman', sans-serif; font-weight: bold; color: black; font-style: italic; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">
-                Brain Tumor Detections Web
-            </center>
+      </div>
+    </section>
+
+    <body>
+      <footer class="text-gray-600 body-font">
+        <div
+          class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col"
+        >
+          <a
+            class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900"
+          >
+            <img
+              src="../static/images/rawImage.png"
+              class="w-10 h-10 p-2 bg-white-500 rounded-full"
+            />
+
+            <span class="ml-3 text-xl">Claim Trust</span>
+          </a>
+          <p
+            class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4"
+          >
+            © 2024 All Right are Reserved —
+            <a
+              href="#"
+              class="text-gray-600 ml-1"
+              rel="noopener noreferrer"
+              target="_blank"
+              >Claim Trust</a
+            >
+          </p>
+          <span
+            class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start"
+          >
+            <a
+              href="https://www.instagram.com/invites/contact/?i=8zkglwdp1l2d&utm_content=3hmbmst"
+              class="ml-3 text-gray-500"
+            >
+              <svg
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                class="w-5 h-5"
+                viewBox="0 0 24 24"
+              >
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                <path
+                  d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"
+                ></path>
+              </svg>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/deepeshkumar2104/"
+              class="ml-3 text-gray-500"
+            >
+              <svg
+                fill="currentColor"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="0"
+                class="w-5 h-5"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke="none"
+                  d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
+                ></path>
+                <circle cx="4" cy="4" r="2" stroke="none"></circle>
+              </svg>
+            </a>
+          </span>
         </div>
-        <div>
-            <center>
-                <!-- File Upload Section -->
-                <div class="bg--500 h-screen w-screen sm:px-8 md:px-16 sm:py-8">
-                    <main class="container mx-auto max-w-screen-lg h-full">
-                        <form id="upload-form" enctype="multipart/form-data">
-                            <!-- file upload modal -->
-                            <article aria-label="File Upload Modal"
-                                class="relative h-full flex flex-col bg-white shadow-xl rounded-md"
-                                ondrop="dropHandler(event);" ondragover="dragOverHandler(event);"
-                                ondragleave="dragLeaveHandler(event);" ondragenter="dragEnterHandler(event);">
-                                <!-- overlay -->
-                                <div id="overlay"
-                                    class="w-full h-full absolute top-0 left-0 pointer-events-none z-50 flex flex-col items-center justify-center rounded-md">
-                                    <i>
-                                        <svg class="fill-current w-12 h-12 mb-3 text-blue-700"
-                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                            viewBox="0 0 24 24">
-                                            <!-- SVG Path for upload icon -->
-                                        </svg>
-                                    </i>
-                                    <p class="text-lg text-blue-700">Drop files to upload</p>
-                                </div>
-
-                                <!-- scroll area -->
-                                <section
-                                    class="h-full overflow-hidden p-8 w-full h-full flex flex-col">
-                                    <!-- File Upload Header -->
-                                    <header
-                                        class="border-dashed border-2 border-gray-400 py-12 flex flex-col justify-center items-center">
-                                        <p
-                                            class="mb-3 font-semibold text-gray-900 flex flex-wrap justify-center">
-                                            <span>Drag and drop your</span>&nbsp;<span>files anywhere or</span>
-                                        </p>
-                                        <!-- Hidden Input for File Upload -->
-                                        <input id="hidden-input" type="file" name="files[]" multiple class="hidden" />
-                                        <button id="button"
-                                            class="mt-2 rounded-sm px-3 py-1 bg-gray-200 hover:bg-gray-300 focus:shadow-outline focus:outline-none">
-                                            Upload a file
-                                        </button>
-                                    </header>
-
-                                    <!-- Uploaded File Preview and Results Table -->
-                                    <h1 class="pt-8 pb-3 font-semibold sm:text-lg text-gray-900">
-                                        Uploaded Images and Predictions
-                                    </h1>
-                                    <div id="uploaded-files" class="flex flex-wrap -m-1">
-                                        <!-- Uploaded Files and Predictions will be displayed here -->
-                                    </div>
-                                </section>
-
-                                <!-- Footer with Upload and Cancel Buttons -->
-                                <footer class="flex justify-end px-8 pb-8 pt-4">
-                                    <button id="submit"
-                                        class="rounded-sm px-3 py-1 bg-blue-700 hover:bg-blue-500 text-white focus:shadow-outline focus:outline-none">
-                                        Upload now
-                                    </button>
-                                    <button id="cancel"
-                                        class="ml-3 rounded-sm px-3 py-1 hover:bg-gray-300 focus:shadow-outline focus:outline-none">
-                                        Cancel
-                                    </button>
-                                </footer>
-                            </article>
-                        </form>
-                    </main>
-                </div>
-            </center>
-        </div>
-    </main>
-
-    <script>
-        // JavaScript code for file upload functionality
-    </script>
-</body>
-
+      </footer>
+      <!-- ====== Footer Section End -->
+    </body>
+  </body>
 </html>

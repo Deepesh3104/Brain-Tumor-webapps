@@ -217,6 +217,9 @@ def predict():
 
 # tummor Implementation end here 
 
+
+# sucess alert 
+
 @app.route('/submit', methods=['POST'])
 def submit():
     if request.method == 'POST':
@@ -270,7 +273,7 @@ def login1():
 @app.route('/logout')
 def logout():
     session.pop("user_id", None)
-    return render_template("login1.html")
+    return render_template("index.html")
 
 from flask import redirect, url_for
 
@@ -317,6 +320,7 @@ def services():
     return render_template("services.html")
 
 
+
 @app.route("/contact", methods=["GET", "POST"])
 def contact():
     return render_template("contactus.html")
@@ -325,6 +329,11 @@ def contact():
 @app.route("/about", methods=["GET", "POST"])
 def about():
     return render_template("about.html")
+
+@app.route("/helpsupot", methods=["GET", "POST"])
+def helpsupot():
+    return render_template("help&suppot.html")
+
 
 
 if __name__ == "__main__":
