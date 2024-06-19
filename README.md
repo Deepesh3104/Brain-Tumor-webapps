@@ -1,5 +1,4 @@
-markdown
-Copy code
+
 # Brain Tumor Web Application
 
 ## Overview
@@ -29,39 +28,47 @@ The Brain Tumor Web Application is a machine learning-powered platform designed 
 1. **Clone the repository**:
    ```bash
    git clone https://github.com/Deepesh3104/Brain-Tumor-webapps.git
-Navigate to the project directory:
-bash
-Copy code
-cd Brain-Tumor-webapps
-Create a virtual environment:
-bash
-Copy code
-python -m venv venv
-Activate the virtual environment:
-On Windows:
-bash
-Copy code
-venv\Scripts\activate
-On macOS/Linux:
-bash
-Copy code
-source venv/bin/activate
-Install the required dependencies:
-bash
-Copy code
-pip install -r requirements.txt
-Run the application:
-bash
-Copy code
-python app.py
-Usage
-Upload an MRI Image: Go to the upload section and select the MRI image you want to analyze.
-Analyze: Click on the 'Analyze' button to start the tumor detection process.
-View Results: The application will display the detected tumor and its classification.
-Technology Stack
-Frontend: HTML, CSS, JavaScript
-Backend: Flask
-Machine Learning: TensorFlow, Keras
-Image Processing: OpenCV
-Contributors
-Deepesh3104
+   ```
+2. **Navigate to the project directory**:
+   ```bash
+   cd Brain-Tumor-webapps
+   ```
+3. **Create a virtual environment**:
+   ```bash
+   python -m venv venv
+   ```
+4. **Activate the virtual environment**:
+   - On Windows:
+     ```bash
+     venv\Scripts ctivate
+     ```
+   - On macOS/Linux:
+     ```bash
+     source venv/bin/activate
+     ```
+5. **Install the required dependencies**:
+   ```bash
+   pip install -r requirements.txt
+   ```
+6. **Run the application**:
+   ```bash
+   python app.py
+   ```
+
+## Usage
+
+1. **Upload an MRI Image**: Go to the upload section and select the MRI image you want to analyze.
+2. **Analyze**: Click on the 'Analyze' button to start the tumor detection process.
+3. **View Results**: The application will display the detected tumor and its classification.
+
+## Technology Stack
+
+- **Frontend**: HTML, CSS, JavaScript
+- **Backend**: Flask
+- **Machine Learning**: TensorFlow, Keras
+- **Image Processing**: OpenCV
+
+## Contributors
+
+- [Deepesh3104](https://github.com/Deepesh3104)
+
